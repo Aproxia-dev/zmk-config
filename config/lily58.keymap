@@ -19,6 +19,10 @@
 
 #define TT(layer) &tt layer layer
 
+&mt {
+    retro-tap;
+};
+
 / {
     behaviors {
         tt: behavior_tt {
@@ -34,10 +38,6 @@
             tapping-term-ms = <200>;
             bindings = <TT(NUM)>, <TT(NAV)>;
         };
-    };
-
-    &mt {
-        retro-tap
     };
 
     keymap {
