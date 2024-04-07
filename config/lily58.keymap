@@ -28,6 +28,16 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&to>;
         };
+        rtd: raise_tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <TT(NUM)>, <TT(NAV)>;
+        };
+    };
+
+    &mt {
+        retro-tap
     };
 
     keymap {
@@ -39,7 +49,7 @@
 &kp TAB   &kp Q      &kp W      &kp F       &kp P       &kp B                             &kp J    &kp L       &kp U       &kp Y      &kp SEMI   &kp BSLH
 &kp LCTRL &mt LALT A &mt LGUI R &mt LSHFT S &mt LCTRL T &kp G                             &kp M    &mt LCTRL N &mt LSHFT E &mt LGUI I &mt LALT O &kp SQT
 &kp LSHFT &kp Z      &kp X      &kp C       &kp D       &kp V     &kp LBKT   &kp RBKT     &kp K    &kp H       &kp COMMA   &kp DOT    &kp FSLH   &kp RALT
-                                &kp PSCRN   &kp LGUI    TT(NUM)   &kp RET    &kp SPACE    TT(NAV)  &key_repeat &kp F24
+                                &kp PSCRN   &kp LGUI    &rtd      &kp RET    &kp SPACE    TT(NAV)  &key_repeat &kp F24
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
