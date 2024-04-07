@@ -19,10 +19,6 @@
 
 #define TT(layer) &tt layer layer
 
-&mt {
-    retro-tap;
-};
-
 / {
     behaviors {
         tt: behavior_tt {
@@ -38,6 +34,15 @@
             tapping-term-ms = <200>;
             bindings = <TT(NUM)>, <TT(NAV)>;
         };
+        hrm: home_row_mod {
+            compatible: "zmk,behavior-hold-tap";
+            #binding-cells = <0>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        }
     };
 
     keymap {
@@ -45,11 +50,11 @@
 
         default_layer {
             bindings = <
-&kp ESC   &kp N1     &kp N2     &kp N3      &kp N4      &kp N5                            &kp N6   &kp N7      &kp N8      &kp N9     &kp N0     &kp BSPC
-&kp TAB   &kp Q      &kp W      &kp F       &kp P       &kp B                             &kp J    &kp L       &kp U       &kp Y      &kp SEMI   &kp BSLH
-&kp LCTRL &mt LALT A &mt LGUI R &mt LSHFT S &mt LCTRL T &kp G                             &kp M    &mt LCTRL N &mt LSHFT E &mt LGUI I &mt LALT O &kp SQT
-&kp LSHFT &kp Z      &kp X      &kp C       &kp D       &kp V     &kp LBKT   &kp RBKT     &kp K    &kp H       &kp COMMA   &kp DOT    &kp FSLH   &kp RALT
-                                &kp PSCRN   &kp LGUI    &rtd      &kp RET    &kp SPACE    TT(NAV)  &key_repeat &kp F24
+&kp ESC   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                            &kp N6   &kp N7       &kp N8       &kp N9      &kp N0      &kp BSPC
+&kp TAB   &kp Q       &kp W       &kp F        &kp P        &kp B                             &kp J    &kp L        &kp U        &kp Y       &kp SEMI    &kp BSLH
+&kp LCTRL &hrm LALT A &hrm LGUI R &hrm LSHFT S &hrm LCTRL T &kp G                             &kp M    &hrm LCTRL N &hrm LSHFT E &hrm LGUI I &hrm LALT O &kp SQT
+&kp LSHFT &kp Z       &kp X       &kp C        &kp D        &kp V     &kp LBKT   &kp RBKT     &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
+                                  &kp PSCRN    &kp LGUI     &rtd      &kp RET    &kp SPACE    TT(NAV)  &key_repeat  &kp F24
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -59,7 +64,7 @@
             bindings = <
 &kp F1 &kp F2    &kp F3    &kp F4   &kp F5   &kp F6                          &kp F7    &kp F8    &kp F9    &kp F10   &kp F11 &kp F12
 &trans &kp UNDER &kp MINUS &kp LPAR &kp RPAR &trans                          &trans    &kp KP_N7 &kp KP_N8 &kp KP_N9 &trans  &trans
-&trans &kp EQUAL &kp PLUS  &kp LBKT &kp RBKT &trans                          &trans    &kp KP_N4 &kp KP_N5 &kp KP_N6 &trans  &trans
+&trans &kp PLUS  &kp EQUAL &kp LBKT &kp RBKT &trans                          &trans    &kp KP_N4 &kp KP_N5 &kp KP_N6 &trans  &trans
 &trans &kp TILDE &kp GRAVE &kp LBRC &kp RBRC &trans        &to GAME &to GAME &kp KP_N0 &kp KP_N1 &kp KP_N2 &kp KP_N3 &trans  &trans 
                            &trans   &trans   &tt NAV ALPHA &trans   &trans   &trans    &trans    &trans
             >;
