@@ -55,7 +55,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-            bindings = <&bkspdel>, <&mo>;
+            bindings = <&mo>, <&bkspdel>;
         };
     };
 
