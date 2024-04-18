@@ -18,7 +18,6 @@
 #define GAME 3
 
 #define TT(layer) &tt layer layer
-#define LSM(layer) &lsm layer layer
 
 / {
     behaviors {
@@ -50,13 +49,6 @@
             bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        lsm: layer_shift_morph {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&bkspdel>;
-        };
     };
 
     keymap {
@@ -64,7 +56,7 @@
 
         default_layer {
             bindings = <
-&kp ESC   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                            &kp N6   &kp N7       &kp N8       &kp N9      &kp N0      LSM(NUM)
+&kp ESC   &kp N1      &kp N2      &kp N3       &kp N4       &kp N5                            &kp N6   &kp N7       &kp N8       &kp N9      &kp N0      &bkspdel
 &kp TAB   &kp Q       &kp W       &kp F        &kp P        &kp B                             &kp J    &kp L        &kp U        &kp Y       &kp SEMI    &kp BSLH
 &kp LCTRL &hrm LALT A &hrm LGUI R &hrm LSHFT S &hrm LCTRL T &kp G                             &kp M    &hrm LCTRL N &hrm LSHFT E &hrm LGUI I &hrm LALT O &kp SQT
 &kp LSHFT &kp Z       &kp X       &kp C        &kp D        &kp V     &kp LBKT   &kp RBKT     &kp K    &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
