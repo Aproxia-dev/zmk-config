@@ -79,7 +79,7 @@
 	    compatible = "zmk,conditional-layers";
 	    tri_layer {
 		    if-layers = <NUM SYM>;
-		    then-layers = <TRI>;
+		    then-layer = <TRI>;
 	    };
     };
 
