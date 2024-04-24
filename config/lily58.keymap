@@ -84,7 +84,7 @@
 &kp TAB   &kp Q  &kp W       &kp F       &kp P        &kp B                       &kp J    &kp L        &kp U       &kp Y       &kp SQT  &kp BSLH
 &kp LCTRL &kp A  HRM(R,LALT) HRM(S,LGUI) HRM(T,LCTRL) &kp G                       &kp M    HRM(N,LCTRL) HRM(E,LGUI) HRM(I,LALT) &kp O    &kp SEMI
 &kp LSHFT &kp Z  &kp X       &kp C       &kp D        &kp V     &none    &none    &kp K    &kp H        &kp COMMA   &kp DOT     &kp FSLH &kp RALT
-                             &none       &none        &kp LSHFT LRE(NUM) LBD(SYM) &sptab   &mo ACC      &none
+                             &none       &none        &kp LSHFT LBD(SYM) LRE(NUM) &sptab   &mo ACC      &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
