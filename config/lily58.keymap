@@ -16,7 +16,7 @@
 #define NUM 1
 #define SYM 2
 #define TRI 3
-#define ACC 4
+#define GAME 4
 
 #define HRM(key,mod) &hrm mod   key
 #define LBD(layer)   &lbd layer layer
@@ -32,6 +32,12 @@
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
+        };
+        &lt {
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
         };
         
         // hybrid keys
@@ -92,7 +98,7 @@
 &kp TAB   &kp Q  &kp W       &kp F       &kp P        &kp B                       &kp J    &kp L        &kp U       &kp Y       &kp SQT  &kp BSLH
 &kp LCTRL &kp A  HRM(R,LALT) HRM(S,LGUI) HRM(T,LCTRL) &kp G                       &kp M    HRM(N,LCTRL) HRM(E,LGUI) HRM(I,LALT) &kp O    &kp SEMI
 &kp LSHFT &kp Z  &kp X       &kp C       &kp D        &kp V     &none    &none    &kp K    &kp H        &kp COMMA   &kp DOT     &kp FSLH &kp RALT
-                             &none       &none        &kp LSHFT LBD(SYM) LRE(NUM) &sptab   &mo ACC      &none
+                             &none       &to GAME     &kp LSHFT LBD(SYM) LRE(NUM) &sptab   &trans       &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -129,6 +135,18 @@
 &trans &kp F11 &kp F4 &kp F5 &kp F6 &none                 &none  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &none  &trans
 &trans &kp F10 &kp F1 &kp F2 &kp F3 &none   &trans &trans &none  &kp PSCRN  &kp C_BRI_DN &kp C_BRI_UP &none  &trans
                       &trans &trans &trans  &trans &trans &trans &trans &trans 
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        game_layer {
+            bindings = <
+&kp ESC   &kp N4 &kp N5 &kp N6 &kp N7 &kp N8                          &trans &trans &trans &trans    &trans     &trans
+&kp TAB   &kp N1 &kp Q  &kp W  &kp E  &kp R                           &kp T  &kp Y  &kp U  &kp I     &kp O      &kp P
+&kp LCTRL &kp N2 &kp A  &kp S  &kp D  &kp F                           &kp G  &kp H  &kp J  &kp K     &kp L      &kp SEMI
+&kp LSHFT &kp N3 &kp Z  &kp X  &kp C  &kp V     &trans     &trans     &kp B  &kp N  &kp M  &kp COMMA &kp PERIOD &to ALPHA
+                        &trans &trans &mo ALPHA &kp SPACE  &kp RETURN &mo LOWER &mo RAISE &trans 
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
