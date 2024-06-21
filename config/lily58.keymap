@@ -147,7 +147,7 @@
 &kp TAB   &kp N1 &kp Q  &kp W  &kp E  &kp R                           &kp T  &kp Y  &kp U  &kp I     &kp O      &kp P
 &kp LCTRL &kp N2 &kp A  &kp S  &kp D  &kp F                           &kp G  &kp H  &kp J  &kp K     &kp L      &kp SEMI
 &kp LSHFT &kp N3 &kp Z  &kp X  &kp C  &kp V     &trans     &trans     &kp B  &kp N  &kp M  &kp COMMA &kp PERIOD &to ALPHA
-                        &trans &trans &mo ALPHA &kp SPACE  &kp RETURN &mo LOWER &mo RAISE &trans 
+                        &trans &mo LOWER &mo ALPHA &kp SPACE  &kp RETURN &kp BSPC &mo RAISE &trans 
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
