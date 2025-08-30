@@ -37,42 +37,42 @@
             key-positions = <40 55>;
             layers = <0>;
             bindings = <&kp TAB>;
-        }
+        };
 
         combo_lescape {
             timeout-ms = <100>;
             key-positions = <40 53>;
             layers = <0>;
             bindings = <&kp ESC>;
-        }
+        };
 
         combo_ldelete {
             timeout-ms = <100>;
             key-positions = <40 54>;
             layers = <0>;
             bindings = <&kp DEL>;
-        }
+        };
 
         combo_rtab {
             timeout-ms = <100>;
             key-positions = <45 55>;
             layers = <0>;
             bindings = <&kp TAB>;
-        }
+        };
 
         combo_rescape {
             timeout-ms = <100>;
             key-positions = <45 53>;
             layers = <0>;
             bindings = <&kp ESC>;
-        }
+        };
 
         combo_rdelete {
             timeout-ms = <100>;
             key-positions = <45 54>;
             layers = <0>;
             bindings = <&kp DEL>;
-        }
+        };
     }
 
     conditional_layers {
