@@ -73,7 +73,7 @@
             layers = <0>;
             bindings = <&kp DEL>;
         };
-    }
+    };
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
