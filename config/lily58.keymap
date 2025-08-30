@@ -117,7 +117,7 @@
                     &kp LCTRL  &kp A  HRM(R,LALT) HRM(S,LGUI) HRM(T,LCTRL) &kp G                                    &kp M     HRM(N,LCTRL) HRM(E,LGUI) HRM(I,LALT) &kp O    &kp SEMI
                 // ├──────────┼──────┼───────────┼───────────┼────────────┼─────────┼─────────────╮   ╭────────────┼─────────┼────────────┼───────────┼───────────┼────────┼────────┤
                 // │ LSHFT    │ Z    │ X         │ C         │ D          │ V       │ --          │   │ --         │ K       │ H          │ COMMA     │ DOT       │ FSLH   │ RALT   │
-                    &kp LSHFT  &kp Z  &kp X       &kp C       &kp D        &kp V     &none             &none        &kp K     &kp H        &kp COMMA   &kp DOT     &kp FSLH &kp RALT
+                    &kp LSHFT  &kp Z  &kp X       &kp C       LRM(D,BND)   &kp V     &none             &none        &kp K     LRM(H,BND)   &kp COMMA   &kp DOT     &kp FSLH &kp RALT
                 // ╰──────────┴──────┴───────────┼───────────┼────────────┼─────────┼─────────────┤   ├────────────┼─────────┼────────────┼───────────┼───────────┴────────┴────────╯
                 //                               │ --        │ --         │ LSHFT   │ tBSPC hSYM  │   │ tRET hNUM  │ SPACE   │ --         │ --        │ 
                                                   &none        &none       &kp LSHFT LRM(BSPC,SYM)     LRM(RET,NUM) &kp SPACE &none        &none
