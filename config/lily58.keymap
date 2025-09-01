@@ -11,14 +11,12 @@
 
 #define WIN   0
 #define MAC   1
-#define BINDS 2
-#define LOWER 3
-#define RAISE 4
+#define LOWER 2
+#define RAISE 3
 
-#define BND 2
-#define NUM 3
-#define SYM 4
-#define TRI 5
+#define NUM 2
+#define SYM 3
+#define TRI 4
 
 #define HRM(key,mod)   &hrm mod   key
 #define LRM(key,layer) &lrm layer key
@@ -117,7 +115,7 @@
                     &kp LCTRL  &kp A  HRM(R,LALT) HRM(S,LGUI) HRM(T,LCTRL) &kp G                                    &kp M     HRM(N,LCTRL) HRM(E,LGUI) HRM(I,LALT) &kp O    &kp SEMI
                 // ├──────────┼──────┼───────────┼───────────┼────────────┼─────────┼─────────────╮   ╭────────────┼─────────┼────────────┼───────────┼───────────┼────────┼────────┤
                 // │ LSHFT    │ Z    │ X         │ C         │ D          │ V       │ --          │   │ --         │ K       │ H          │ COMMA     │ DOT       │ FSLH   │ RALT   │
-                    &kp LSHFT  &kp Z  &kp X       &kp C       LRM(D,BND)   &kp V     &none             &none        &kp K     LRM(H,BND)   &kp COMMA   &kp DOT     &kp FSLH &kp RALT
+                    &kp LSHFT  &kp Z  &kp X       &kp C       &kp D        &kp V     &none             &none        &kp K     &kp H        &kp COMMA   &kp DOT     &kp FSLH &kp RALT
                 // ╰──────────┴──────┴───────────┼───────────┼────────────┼─────────┼─────────────┤   ├────────────┼─────────┼────────────┼───────────┼───────────┴────────┴────────╯
                 //                               │ --        │ --         │ LSHFT   │ tBSPC hSYM  │   │ tRET hNUM  │ SPACE   │ --         │ --        │ 
                                                   &none        &none       &kp LSHFT LRM(BSPC,SYM)     LRM(RET,NUM) &kp SPACE &none        &none
@@ -139,8 +137,8 @@
                 // │ LCTRL    │ A    │ R / LALT  │ S / LCTRL  │ T / LGUI  │ G       │                              │ M       │ N / LGUI  │ E / LCTRL  │ I / LALT  │ O      │ SEMI   │
                     &kp LCTRL  &kp A  HRM(R,LALT) HRM(S,LCTRL) HRM(T,LGUI) &kp G                                    &kp M     HRM(N,LGUI) HRM(E,LCTRL) HRM(I,LALT) &kp O    &kp SEMI
                 // ├──────────┼──────┼───────────┼────────────┼───────────┼─────────┼─────────────╮   ╭────────────┼─────────┼───────────┼────────────┼───────────┼────────┼────────┤
-                // │ LSHFT    │ Z    │ X         │ C          │ D / BINDS │ V       │ --          │   │ --         │ K       │ H / BINDS │ COMMA      │ DOT       │ FSLH   │ RALT   │
-                    &kp LSHFT  &kp Z  &kp X       &kp C        LRM(D,BND)  &kp V     &none             &none        &kp K     LRM(H,BND)  &kp COMMA    &kp DOT     &kp FSLH &kp RALT
+                // │ LSHFT    │ Z    │ X         │ C          │ D         │ V       │ --          │   │ --         │ K       │ H         │ COMMA      │ DOT       │ FSLH   │ RALT   │
+                    &kp LSHFT  &kp Z  &kp X       &kp C        &kp D       &kp V     &none             &none        &kp K     &kp H       &kp COMMA    &kp DOT     &kp FSLH &kp RALT
                 // ╰──────────┴──────┴───────────┼────────────┼───────────┼─────────┼─────────────┤   ├────────────┼─────────┼───────────┼────────────┼───────────┴────────┴────────╯
                 //                               │ --         │ --        │ LSHFT   │ tBSPC hSYM  │   │ tRET hNUM  │ SPACE   │ --        │ --         │ 
                                                   &none        &none       &kp LSHFT LRM(BSPC,SYM)     LRM(RET,NUM) &kp SPACE &none       &none
@@ -150,70 +148,25 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        binds_layer {
-            bindings = <
-                // ╭──────┬──────┬──────┬──────┬──────┬──────╮                    ╭───────┬──────┬──────┬──────┬──────┬──────╮
-                // │      │      │      │      │      │      │                    │       │      │      │      │      │      │
-                    &trans &trans &trans &trans &trans &trans                      &trans  &trans &trans &trans &trans &trans
-                // ├──────┼──────┼──────┼──────┼──────┼──────┤                    ├───────┼──────┼──────┼──────┼──────┼──────┤
-                // │      │      │      │      │      │      │                    │       │      │      │      │      │      │
-                    &trans &trans &trans &trans &trans &trans                      &trans  &trans &trans &trans &trans &trans
-                // ├──────┼──────┼──────┼──────┼──────┼──────┤                    ├───────┼──────┼──────┼──────┼──────┼──────┤
-                // │      │      │      │      │      │      │                    │       │      │      │      │      │      │
-                    &trans &trans &trans &trans &trans &trans                      &trans  &trans &trans &trans &trans &trans
-                // ├──────┼──────┼──────┼──────┼──────┼──────┼────────╮   ╭───────┼───────┼──────┼──────┼──────┼──────┼──────┤
-                // │      │      │      │      │      │      │        │   │       │       │      │      │      │      │      │
-                    &trans &trans &trans &trans &trans &trans &trans       &trans  &trans  &trans &trans &trans &trans &trans
-                // ╰──────┴──────┴──────┼──────┼──────┼───────┼───────┤   ├───────┼───────┼──────┼──────┼──────┴──────┴──────╯
-                //                      │      │      │       │       │   │       │       │      │      │ 
-                                         &trans &trans &trans  &kp ESC     &kp DEL &kp TAB &trans &trans 
-                //                      ╰──────┴──────┴───────┴───────╯   ╰───────┴───────┴──────┴──────╯
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
-
-        lower_layer {
-            bindings = <
-                // ╭──────┬─────────┬──────┬──────┬──────┬─────────╮                 ╭────────┬────────┬─────────┬─────────┬─────────┬──────╮
-                // │      │         │      │      │      │         │                 │        │        │         │         │         │      │
-                    &trans &trans    &trans &trans &trans &trans                      &trans   &trans   &trans    &trans    &trans    &trans
-                // ├──────┼─────────┼──────┼──────┼──────┼─────────┤                 ├────────┼────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ /       │ 7    │ 8    │ 9    │ -       │                 │ --     │ --     │ --      │ --      │ --      │      │
-                    &trans &kp FSLH  &kp N7 &kp N8 &kp N9 &kp MINUS                   &none    &none    &none     &none     &none     &trans
-                // ├──────┼─────────┼──────┼──────┼──────┼─────────┤                 ├────────┼────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ *       │ 4    │ 5    │ 6    │ +       │                 │ CAPS   │ LEFT   │ DOWN    │ UP      │ RIGHT   │      │
-                    &trans &kp STAR  &kp N4 &kp N5 &kp N6 &kp PLUS                    &kp CAPS &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans
-                // ├──────┼─────────┼──────┼──────┼──────┼─────────┼──────╮   ╭──────┼────────┼────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ ^       │ 1    │ 2    │ 3    │ .       │      │   │      │ INSERT │ HOME   │ PGDN    │ PGUP    │ END     │      │
-                    &trans &kp CARET &kp N1 &kp N2 &kp N3 &kp DOT   &trans     &trans &kp INS  &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans
-                // ╰──────┴─────────┴──────┼──────┼──────┼─────────┼──────┤   ├──────┼────────┼────────┼─────────┼─────────┴─────────┴──────╯
-                //                         │      │      │ 0       │      │   │      │        │        │         │ 
-                                            &trans &trans &kp N0    &trans     &trans &trans   &trans   &trans 
-                //                         ╰──────┴──────┴─────────┴──────╯   ╰──────┴────────┴────────┴─────────╯
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-        };
 
         raise_layer {
             bindings = <
-                // ╭──────┬────────┬────────┬────────┬────────┬─────────╮                 ╭─────────┬─────────┬─────────┬─────────┬─────────┬──────╮
-                // │      │        │        │        │        │         │                 │         │         │         │         │         │      │
-                    &trans &trans   &trans   &trans   &trans   &trans                      &trans    &trans    &trans    &trans    &trans    &trans
-                // ├──────┼────────┼────────┼────────┼────────┼─────────┤                 ├─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ !      │ @      │ #      │ $      │ %       │                 │ ^       │ &       │ *       │ `       │ ~       │      │
-                    &trans &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT                   &kp CARET &kp AMPS  &kp STAR  &kp GRAVE &kp TILDE &trans
-                // ├──────┼────────┼────────┼────────┼────────┼─────────┤                 ├─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ {      │ }      │ (      │ )      │ --      │                 │ --      │ -       │ =       │ \       │ ;       │      │
-                    &trans &kp LBRC &kp RBRC &kp LPAR &kp RPAR &none                       &none     &kp MINUS &kp EQUAL &kp BSLH  &kp SEMI  &trans
-                // ├──────┼────────┼────────┼────────┼────────┼─────────┼──────╮   ╭──────┼─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
-                // │      │ <      │ >      │ [      │ ]      │ --      │      │   │      │ --      │ _       │ +       │ |       │ :       │      │
-                    &trans &kp LT   &kp GT   &kp LBKT &kp RBKT &none     &trans     &trans &none     &kp UNDER &kp PLUS  &kp PIPE  &kp COLON &trans
-                // ╰──────┴────────┴────────┼────────┼────────┼─────────┼──────┤   ├──────┼─────────┼─────────┼─────────┼─────────┴─────────┴──────╯
-                //                          │        │        │         │      │   │      │         │         │         │ 
-                                             &trans   &trans   &trans    &trans     &trans &trans    &trans    &trans 
-                //                          ╰────────┴────────┴─────────┴──────╯   ╰──────┴─────────┴─────────┴─────────╯
+                // ╭──────┬────────┬────────┬────────┬────────┬─────────╮                               ╭─────────┬─────────┬─────────┬─────────┬─────────┬──────╮
+                // │      │        │        │        │        │         │                               │         │         │         │         │         │      │
+                    &trans &trans   &trans   &trans   &trans   &trans                                    &trans    &trans    &trans    &trans    &trans    &trans
+                // ├──────┼────────┼────────┼────────┼────────┼─────────┤                               ├─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
+                // │      │ !      │ @      │ #      │ $      │ %       │                               │ ^       │ &       │ *       │ `       │ ~       │      │
+                    &trans &kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT                                 &kp CARET &kp AMPS  &kp STAR  &kp GRAVE &kp TILDE &trans
+                // ├──────┼────────┼────────┼────────┼────────┼─────────┤                               ├─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
+                // │      │ {      │ }      │ (      │ )      │ --      │                               │ --      │ -       │ =       │ \       │ ;       │      │
+                    &trans &kp LBRC &kp RBRC &kp LPAR &kp RPAR &none                                     &none     &kp MINUS &kp EQUAL &kp BSLH  &kp SEMI  &trans
+                // ├──────┼────────┼────────┼────────┼────────┼─────────┼─────────────╮   ╭─────────────┼─────────┼─────────┼─────────┼─────────┼─────────┼──────┤
+                // │      │ <      │ >      │ [      │ ]      │ --      │             │   │             │ --      │ _       │ +       │ |       │ :       │      │
+                    &trans &kp LT   &kp GT   &kp LBKT &kp RBKT &none     &trans            &trans        &none     &kp UNDER &kp PLUS  &kp PIPE  &kp COLON &trans
+                // ╰──────┴────────┴────────┼────────┼────────┼─────────┼─────────────┤   ├─────────────┼─────────┼─────────┼─────────┼─────────┴─────────┴──────╯
+                //                          │        │        │         │  tESC hTRI  │   │  tDEL hTRI  │ TAB     │         │         │ 
+                                             &trans   &trans   &trans    LRM(ESC, SYM)     LRM(DEL, NUM) &kp TAB   &trans   &trans  
+                //                          ╰────────┴────────┴─────────┴─────────────╯   ╰─────────────┴─────────┴─────────┴─────────╯
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
